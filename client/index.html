@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Climbing Books</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <img class="myLogo" src="Untitled design.png" alt="Personal Logo" />
+      <nav class="navbarLinks">
+        <a href="#">Home</a>
+        <a href="#">Routes</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+    <section class="addingRouteSection">
+      <div class="pictureSection">
+        <img
+          class="rockClimbingHeroImage"
+          src="pexels-dominika-roseclay-1094794.jpg"
+          alt="Rock CLimbing Picture"
+        />
+      </div>
+      <div class="borderLine"></div>
+      <div class="addingRouteFormSection">
+        <p class="addingRouteFormSectionParagraph">Give Us A New Route</p>
+        <p id="userfeedback">Fill Out Form</p>
+        <form class="nameOfRoute">
+          <label class="rockClimbingName">Name:</label>
+          <input type="text" id="nameOfRoute" />
+        </form>
+        <form>
+          <label class="rockClimbingTypes" for="rockClimbingTypes"
+            >Types:</label
+          >
+          <select name="rockClimbingTypes" id="rockClimbingTypes">
+            <option value="Boulder">Boulder</option>
+            <option value="Sport" selected>Sport</option>
+            <option value="Trad">Trad</option>
+          </select>
+        </form>
+        <form>
+          <label class="rockClimbingGrades" for="rockClimbingGrades"
+            >Grades:</label
+          >
+          <select name="rockClimbingGrades" id="rockClimbingGrades">
+            <option value="5.7">5.7</option>
+            <option value="5.8">5.8</option>
+            <option value="5.9">5.9</option>
+            <option value="5.10a">5.10a</option>
+            <option value="5.10b">5.10b</option>
+            <option value="5.10c">5.10c</option>
+            <option value="5.10d">5.10d</option>
+            <option value="5.11a">5.11a</option>
+            <option value="5.11b">5.11b</option>
+            <option value="5.11c">5.11c</option>
+            <option value="5.11d">5.11d</option>
+            <option value="5.12a">5.12a</option>
+            <option value="5.12b" selected>5.12b</option>
+            <option value="5.12c">5.12c</option>
+            <option value="5.12d">5.12d</option>
+            <option value="5.13a">5.13a</option>
+            <option value="5.13b">5.13b</option>
+            <option value="5.13c">5.13c</option>
+            <option value="5.13d">5.13d</option>
+            <option value="5.14a">5.14a</option>
+            <option value="5.14b">5.14b</option>
+            <option value="5.14c">5.14c</option>
+            <option value="5.14d">5.14d</option>
+            <option value="5.15a">5.15a</option>
+            <option value="5.15b">5.15b</option>
+            <option value="5.15c">5.15c</option>
+            <option value="5.15d">5.15d</option>
+          </select>
+        </form>
+        <button id="addRouteBtn">Add Route</button>
+      </div>
+    </section>
+
+    <section class="allRoutesAddedSection">
+      <table id="climbingTable">
+        <tr class="tableTitle">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Grade</th>
+        </tr>
+      </table>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>

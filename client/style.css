@@ -1,0 +1,160 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--dk-grey);
+}
+
+:root {
+  --dk-grey: #454545;
+  --white: #ffffff;
+  --blue: rgb(86, 137, 224);
+  --black: #222222;
+}
+
+/* Navbar CSS */
+.myLogo {
+  width: 75px;
+  height: 75px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 5px solid var(--blue);
+  align-items: center;
+  background-color: var(--dk-grey);
+  position: sticky;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.navbarLinks a {
+  color: var(--white);
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 0px 5px;
+  cursor: pointer;
+  transition-duration: 0.8s;
+}
+.navbarLinks a:hover {
+  color: var(--blue);
+}
+
+/* Addding route Section css */
+.addingRouteSection {
+  width: 100%;
+  min-height: 500px;
+  background-color: var(--black);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid var(--blue);
+}
+.addingRouteFormSectionParagraph {
+  color: var(--white);
+  font-size: 3em;
+  text-align: center;
+  padding: 20px 20px;
+}
+.pictureSection {
+  margin: 20px 20px;
+  height: 400px;
+  width: 50%;
+}
+.rockClimbingHeroImage {
+  width: 100%;
+  height: 400px;
+  box-shadow: 3px 3px 10px var(--dk-grey);
+  object-fit: cover;
+}
+.addingRouteFormSection {
+  border-left: 3px solid var(--blue);
+  margin: 20px 20px;
+  height: 400px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+.rockClimbingName {
+  text-align: center;
+}
+
+.rockClimbingTypes,
+.rockClimbingGrades,
+.rockClimbingName,
+#userfeedback {
+  color: var(--white);
+  font-size: 1.5em;
+}
+#addRouteBtn {
+  width: 100px;
+  height: 25px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 0.9em;
+  margin-top: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#addRouteBtn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.allRoutesAddedSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  padding: 20px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border: 2px solid var(--white);
+  width: 100%;
+}
+.tableTitle {
+  border-bottom: 2px solid var(--white);
+}
+
+td,
+th {
+  color: var(--white);
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--black);
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .addingRouteSection {
+    flex-flow: column nowrap;
+  }
+  .addingRouteFormSection {
+    border: none;
+    margin: 0;
+  }
+  .borderLine {
+    border-bottom: 3px solid var(--blue);
+    width: 100%;
+  }
+  .nameOfRoute {
+    display: flex;
+    justify-content: center;
+  }
+  .addingRouteFormSectionParagraph {
+    font-size: 2em;
+  }
+}
