@@ -1,27 +1,74 @@
 from flask import Flask, request
-from dummydb import DummyDB
+from routes import RoutesDB
 
-# routes = [{"Name": "The Bastille Crack","Type": "Sport", "Grade": "5.7"},
-#           {"Name": "Stolen Chimeny","Type": "Trad", "Grade": "5.10b"},
-#           {"Name": "Rewritten","Type": "Boulder", "Grade": "5.12c"}]
+class MyFlask(Flask):
+    def add_url_rule(self,rule,endpoint=None, view_func=None, **options):
+        return super().add_url_rule(rule,endpoint,view_func,provide_automatic_options=False,**options)
           
-app = Flask(__name__)
+app = MyFlask(__name__)
 
+@app.route("/routes/<int:route_id>", methods=["OPTIONS"])
+def cors_preflight(route_id):
+    return "",200,{"Access-Control-Allow-Origin": "*", 
+                   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                   "Access-Control-Allow-Headers": "Content-Type"} 
+
+
+# Get whole collection
 @app.route("/routes", methods=["GET"])
 def getRoutes():
     # Load from database
-    db = DummyDB('mydatabase.db')
-    allRecords = db.readAllRecords()
-    # print(allRecords)
-    return allRecords, 200, {"Access-Control-Allow-Origin": "*"}
+    db = RoutesDB()
+    allRoutes = db.getRoutes()
+    return allRoutes, 200, {"Access-Control-Allow-Origin": "*"}
 
+# Get single item from collection
+@app.route("/routes/<int:route_id>", methods=["GET"])
+def getSingleRoute(route_id):
+    print("retrieve route with ID:", route_id)
+    db = RoutesDB()
+    route = db.getRoute(route_id)
+    if route:
+        return route, 200, {"Access-Control-Allow-Origin": "*"}
+    else:
+        return "Route with ID {} not found".format(route_id), 404, {"Access-Control-Allow-Origin": "*"}
+    
 @app.route("/routes", methods=["POST"])
 def postingRoutes():
     # Save to database
-    newRoute = {"Name": request.form["Name"], "Type": request.form["Type"], "Grade": request.form["Grade"]}
-    db = DummyDB('mydatabase.db')
-    db.saveRecord(newRoute)
+    name = request.form["Name"]
+    type = request.form["Type"]
+    grade = request.form["Grade"]
+    attempts = request.form["Attempts"]
+    rating = request.form["Rating"]
+    db = RoutesDB()
+    db.createRoute(name,type,grade,attempts,rating)
     return "Created", 201, {"Access-Control-Allow-Origin": "*"}
+
+@app.route("/routes/<int:route_id>", methods=["PUT"])
+def updatingRoute(route_id):
+    name = request.form["Name"]
+    type = request.form["Type"]
+    grade = request.form["Grade"]
+    attempts = request.form["Attempts"]
+    rating = request.form["Rating"]
+    db = RoutesDB()
+    route = db.getRoute(route_id)
+    if route:
+        db.updateRoute(route_id,name,type,grade,attempts,rating)
+        return "Route with ID {} was Updated".format(route_id), 200,  {"Access-Control-Allow-Origin": "*"}
+    else:
+        return "Route with ID {} not found".format(route_id), 404, {"Access-Control-Allow-Origin": "*"}
+    
+@app.route("/routes/<int:route_id>", methods=["DELETE"])
+def deleteRoute(route_id):
+    db = RoutesDB()
+    route = db.getRoute(route_id)
+    if route:
+        db.deleteRoute(route_id)
+        return "Route with ID {} was deleted".format(route_id), 200,  {"Access-Control-Allow-Origin": "*"}
+    else:
+        return "Route with ID {} not found".format(route_id), 404, {"Access-Control-Allow-Origin": "*"} 
 
 def main():
     app.run(port=8080)
