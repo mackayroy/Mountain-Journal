@@ -16,10 +16,10 @@
 
 ## REST endpoints
 
-| Name                      | Method | Path         |
-| ------------------------- | ------ | ------------ |
-| Retrieve routes colletion | GET    | /routes      |
-| Retrieve single route     | GET    | /routes/<id> |
-| Create new route          | POST   | /routes      |
-| Updates single route      | PUT    | /routes/<id> |
-| Delete single route       | DELETE | /routes/<id> |
+| Name                      | Method | Path       |
+| ------------------------- | ------ | ---------- |
+| Retrieve routes colletion | GET    | /routes    |
+| Retrieve single route     | GET    | /routes/id |
+| Create new route          | POST   | /routes    |
+| Updates single route      | PUT    | /routes/id |
+| Delete single route       | DELETE | /routes/id |
