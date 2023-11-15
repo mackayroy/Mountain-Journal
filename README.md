@@ -2,7 +2,8 @@
 
 ## Resources
 
-**Attributes**
+_Attributes_
+
 **Routes**
 
 - name (string)
