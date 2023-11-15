@@ -55,7 +55,6 @@ password TEXT
 ```
 Password hashed using bcrypt hashing method then stored into Database
 Used bcrypt verfiy method to check users password with Database password for sign in
-
 ```
 
 # f23-authentication-mackayroy
