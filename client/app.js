@@ -87,8 +87,6 @@ openModalFunction = function () {
           userSignUpFirstName.value = "";
           userSignUpLastName.value = "";
           openSignUpModal.style.display = "None";
-          switchSignInBtnToUser.style.display = "Block";
-          signIn.style.display = "None";
         } else if (response.status == 422) {
           signUpTitle.innerHTML = "Email has been Used Already";
         }
@@ -246,9 +244,7 @@ function loadDataFromServer() {
       openModalFunction();
     } else {
       loggedIn = true;
-      var switchSignInBtnToUser = document.querySelector("#userSignedIn");
-      switchSignInBtnToUser.style.display = "Block";
-      signIn.style.display = "None";
+
       response.json().then(function (data) {
         routeList = data;
         document.querySelectorAll(".routeRows").forEach((el) => el.remove());
@@ -291,6 +287,9 @@ function loadDataFromServer() {
           newTableRow.appendChild(th6);
           newTableRow.appendChild(th7);
           table.appendChild(newTableRow);
+          var switchSignInBtnToUser = document.querySelector("#userSignedIn");
+          switchSignInBtnToUser.style.display = "Block";
+          signIn.style.display = "None";
         });
       });
     }
