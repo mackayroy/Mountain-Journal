@@ -14,6 +14,50 @@
         <a href="#">Contact</a>
       </nav>
       <button id="signInBtn">Sign In</button>
+      <div id="userSignedIn">Hello User</div>
+
+      <div id="signInModal">
+        <div class="signInModalContent">
+          <p id="closeSignInModal">X</p>
+          <p class="signInTitle">Sign In</p>
+          <input type="email" placeholder="Email..." id="userEmail" />
+          <input type="password" placeholder="Password..." id="userPasswords" />
+          <p class="signUpOrSignIn">Not User? <a id="SignUpUser">Sign Up</a></p>
+          <button id="signInUserBtn">Sign In</button>
+        </div>
+      </div>
+
+      <div id="signUpModal">
+        <div class="signUpModalContent">
+          <p id="closeSignUpModal">X</p>
+          <p class="signUpTitle">Sign Up</p>
+          <input
+            type="text"
+            placeholder="First Name..."
+            id="userSignUpFirstName"
+          />
+          <input
+            type="text"
+            placeholder="Last Name..."
+            id="userSignUpLastName"
+          />
+          <input type="email" placeholder="Email..." id="userSignUpEmail" />
+          <input
+            type="password"
+            placeholder="Password..."
+            id="userSignUpPasswords"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password..."
+            id="userConfirmSignUpPasswords"
+          />
+          <p class="signUpOrSignIn">
+            Already User? <a id="SignInUser">Sign In</a>
+          </p>
+          <button id="signUpUserBtn">Sign Up</button>
+        </div>
+      </div>
     </header>
 
     <section class="addingRouteSection">

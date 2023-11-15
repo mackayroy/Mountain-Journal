@@ -38,15 +38,20 @@ class RoutesDB:
         self.cursor.execute("DELETE FROM routes WHERE id=?",data)
         self.connection.commit()
 
+    # Users & sessions
+
+    def createUser(self,firstName,lastName,email,password):
+        #don't hard-coded values into the query!
+        data = [firstName,lastName,email,password]
+        self.cursor.execute("INSERT INTO users (firstName,lastName,email,password) VALUES (?,?,?,?)", data) #writing to the data base and need to be saved
+        self.connection.commit()
+    
+    def checkUser(self,email):
+        data = [email]
+        self.cursor.execute("SELECT * FROM users WHERE email=?",data)
+        users = self.cursor.fetchone() 
+        return users
+
+        
 
 # Data binding making sure to keep sql Injection from happening
-
-
-#UPDATE routes SET name = ?, type = ?, grade = ? WHERE id = ?
- 
-
-
-
-
-
-

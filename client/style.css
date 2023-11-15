@@ -12,7 +12,6 @@
 }
 
 /* Navbar CSS */
-
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -44,6 +43,97 @@
   color: var(--white);
   font-size: 1em;
   border-radius: 10px;
+  display: block;
+}
+#userSignedIn {
+  display: none;
+  height: 35px;
+  width: 100px;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 1em;
+  text-align: center;
+  padding: 8px 0px;
+}
+
+/* Sign In/ Sign Up modal */
+#signInModal,
+#signUpModal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-flow: column;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.signInModalContent,
+.signUpModalContent {
+  background-color: var(--black);
+  padding: 40px 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+#closeSignInModal,
+#closeSignUpModal {
+  color: var(--white);
+  font-size: 1.5em;
+  position: relative;
+  left: 150px;
+  top: -10px;
+  cursor: pointer;
+}
+#userEmail,
+#userPasswords,
+#userSignUpEmail,
+#userSignUpPasswords,
+#userConfirmSignUpPasswords,
+#userSignUpFirstName,
+#userSignUpLastName {
+  border: none;
+  margin: 10px 0px;
+  padding: 10px 10px;
+  width: 300px;
+}
+#SignUpUser,
+#SignInUser {
+  color: var(--blue);
+  cursor: pointer;
+}
+.signUpOrSignIn {
+  color: var(--white);
+}
+.signInTitle,
+.signUpTitle {
+  color: var(--white);
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+#signInUserBtn,
+#signUpUserBtn {
+  border: none;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  margin: 10px 0px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+#signInUserBtn:hover,
+#signUpUserBtn:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
 }
 
 /* Addding route Section css */
@@ -221,5 +311,11 @@ tr:nth-child(odd) {
     padding: 0px;
     text-align: center;
     font-size: 12px;
+  }
+  #updateRouteBtn,
+  #deleteRouteBtn {
+    width: 50px;
+    height: 15px;
+    font-size: 0.75em;
   }
 }
